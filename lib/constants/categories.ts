@@ -14,3 +14,4 @@ export const CATEGORY_COLORS = {
   Medicine: "bg-blue-100 text-blue-700",
 } as const;
 
+

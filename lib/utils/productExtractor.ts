@@ -58,3 +58,4 @@ export async function captureProductImage(): Promise<File | null> {
   return new File([blob], 'product-photo.jpg', { type: 'image/jpeg' });
 }
 
+

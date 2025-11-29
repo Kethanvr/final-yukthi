@@ -68,3 +68,4 @@ export function HistoryCard({ scanResult, onClick }: HistoryCardProps) {
   );
 }
 
+

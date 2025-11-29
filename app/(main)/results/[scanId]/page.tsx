@@ -188,3 +188,4 @@ function NutritionItem({ label, value }: { label: string; value: string }) {
   );
 }
 
+

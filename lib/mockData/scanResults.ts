@@ -34,3 +34,4 @@ export function clearScanHistory(): void {
   mockScanHistory.length = 0;
 }
 
+

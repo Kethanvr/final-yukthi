@@ -60,3 +60,4 @@ export function getOrCreateChatSession(scanId: string, profileId: string): ChatS
   return createChatSession(scanId, profileId);
 }
 
+

@@ -43,3 +43,4 @@ export function ProfileCard({ profile, onClick }: ProfileCardProps) {
   );
 }
 
+

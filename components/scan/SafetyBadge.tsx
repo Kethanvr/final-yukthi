@@ -49,3 +49,4 @@ export function SafetyBadge({ badge, score, size = "md" }: SafetyBadgeProps) {
   );
 }
 
+
