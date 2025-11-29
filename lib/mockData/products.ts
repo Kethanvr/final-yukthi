@@ -7,7 +7,7 @@ export const mockProducts: Product[] = [
     name: "Kissan Mixed Fruit Jam",
     brand: "Hindustan Unilever",
     category: "Food",
-    imageUrl: "/products/kissan-jam.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=400&fit=crop",
     ingredients: ["Sugar", "Fruit Pulp (Mango, Apple, Papaya)", "Pectin", "Citric Acid", "Sodium Benzoate"],
     nutrition: {
       sugar: "12g",
@@ -34,7 +34,7 @@ export const mockProducts: Product[] = [
     name: "Maggi 2-Minute Noodles Masala",
     brand: "Nestle",
     category: "Food",
-    imageUrl: "/products/maggi-noodles.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=400&fit=crop",
     ingredients: [
       "Wheat Flour",
       "Palm Oil",
@@ -74,7 +74,7 @@ export const mockProducts: Product[] = [
     name: "Amul Taaza Toned Milk",
     brand: "Amul",
     category: "Food",
-    imageUrl: "/products/amul-milk.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=400&fit=crop",
     ingredients: ["Toned Milk", "Vitamin A", "Vitamin D3"],
     nutrition: {
       sugar: "4.8g",
@@ -97,7 +97,7 @@ export const mockProducts: Product[] = [
     name: "Britannia NutriChoice Digestive Biscuits",
     brand: "Britannia",
     category: "Food",
-    imageUrl: "/products/nutrichoice.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=400&fit=crop",
     ingredients: [
       "Wheat Flour",
       "Oats",
@@ -131,7 +131,7 @@ export const mockProducts: Product[] = [
     name: "Mountain Dew",
     brand: "PepsiCo",
     category: "Food",
-    imageUrl: "/products/mountain-dew.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=400&h=400&fit=crop",
     ingredients: [
       "Carbonated Water",
       "High Fructose Corn Syrup",
@@ -170,7 +170,7 @@ export const mockProducts: Product[] = [
     name: "Mother Dairy Dahi (Plain Curd)",
     brand: "Mother Dairy",
     category: "Food",
-    imageUrl: "/products/mother-dairy-dahi.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=400&h=400&fit=crop",
     ingredients: ["Toned Milk", "Active Bacterial Culture"],
     nutrition: {
       sugar: "3.2g",
@@ -195,7 +195,7 @@ export const mockProducts: Product[] = [
     name: "Dove Intense Repair Shampoo",
     brand: "Unilever",
     category: "Cosmetic",
-    imageUrl: "/products/dove-shampoo.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?w=400&h=400&fit=crop",
     ingredients: [
       "Water",
       "Sodium Laureth Sulfate",
@@ -224,7 +224,7 @@ export const mockProducts: Product[] = [
     name: "Himalaya Nourishing Skin Cream",
     brand: "Himalaya",
     category: "Cosmetic",
-    imageUrl: "/products/himalaya-cream.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop",
     ingredients: [
       "Water",
       "Aloe Vera",
@@ -253,7 +253,7 @@ export const mockProducts: Product[] = [
     name: "Lakme 9 to 5 Primer + Matte Lipstick",
     brand: "Lakme",
     category: "Cosmetic",
-    imageUrl: "/products/lakme-lipstick.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop",
     ingredients: [
       "Isododecane",
       "Dimethicone",
@@ -282,7 +282,7 @@ export const mockProducts: Product[] = [
     name: "Mamaearth Vitamin C Face Wash",
     brand: "Mamaearth",
     category: "Cosmetic",
-    imageUrl: "/products/mamaearth-facewash.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1556228852-80c2e0ff25e3?w=400&h=400&fit=crop",
     ingredients: [
       "Water",
       "Coco Glucoside",
@@ -311,7 +311,7 @@ export const mockProducts: Product[] = [
     name: "The Ordinary Niacinamide 10% + Zinc 1%",
     brand: "The Ordinary",
     category: "Cosmetic",
-    imageUrl: "/products/ordinary-serum.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop",
     ingredients: [
       "Water",
       "Niacinamide",
@@ -340,7 +340,7 @@ export const mockProducts: Product[] = [
     name: "Johnson's Baby Lotion",
     brand: "Johnson & Johnson",
     category: "Cosmetic",
-    imageUrl: "/products/johnsons-lotion.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop",
     ingredients: [
       "Water",
       "Glycerin",
@@ -370,7 +370,7 @@ export const mockProducts: Product[] = [
     name: "Dolo 650 Paracetamol Tablets",
     brand: "Micro Labs",
     category: "Medicine",
-    imageUrl: "/products/dolo-650.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop",
     ingredients: ["Paracetamol 650mg"],
     medicineInfo: {
       activeIngredient: "Paracetamol",
@@ -387,7 +387,7 @@ export const mockProducts: Product[] = [
     name: "Crocin Cold & Flu Max",
     brand: "GSK",
     category: "Medicine",
-    imageUrl: "/products/crocin-cold-flu.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=400&h=400&fit=crop",
     ingredients: [
       "Paracetamol 500mg",
       "Phenylephrine 5mg",
@@ -415,7 +415,7 @@ export const mockProducts: Product[] = [
     name: "ORS (Oral Rehydration Salts)",
     brand: "Electral",
     category: "Medicine",
-    imageUrl: "/products/electral-ors.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=400&fit=crop",
     ingredients: [
       "Sodium Chloride",
       "Potassium Chloride",
@@ -438,7 +438,7 @@ export const mockProducts: Product[] = [
     name: "Vicks VapoRub",
     brand: "Procter & Gamble",
     category: "Medicine",
-    imageUrl: "/products/vicks-vaporub.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=400&fit=crop",
     ingredients: [
       "Camphor 4.8%",
       "Menthol 2.6%",
@@ -463,7 +463,7 @@ export const mockProducts: Product[] = [
     name: "Revital H Multivitamin",
     brand: "Ranbaxy",
     category: "Medicine",
-    imageUrl: "/products/revital-h.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1550572017-edd951aa8743?w=400&h=400&fit=crop",
     ingredients: [
       "Vitamin A",
       "Vitamin B Complex",
@@ -490,7 +490,7 @@ export const mockProducts: Product[] = [
     name: "Dabur Honitus Cough Syrup",
     brand: "Dabur",
     category: "Medicine",
-    imageUrl: "/products/honitus-syrup.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop",
     ingredients: [
       "Honey",
       "Tulsi Extract",
@@ -517,7 +517,7 @@ export const mockProducts: Product[] = [
     name: "Eno Fruit Salt (Lemon)",
     brand: "GSK",
     category: "Medicine",
-    imageUrl: "/products/eno-fruit-salt.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=400&fit=crop",
     ingredients: [
       "Sodium Bicarbonate",
       "Citric Acid",
@@ -540,7 +540,7 @@ export const mockProducts: Product[] = [
     name: "Zandu Balm",
     brand: "Emami",
     category: "Medicine",
-    imageUrl: "/products/zandu-balm.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=400&fit=crop",
     ingredients: [
       "Menthol",
       "Camphor",
