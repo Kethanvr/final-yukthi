@@ -177,7 +177,7 @@ export default function ProfilePage() {
               localStorage.clear();
               router.push("/login");
             }}
-            variant="danger"
+            variant="destructive"
             className="w-full"
           >
             Logout

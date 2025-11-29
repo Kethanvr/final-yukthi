@@ -26,7 +26,12 @@ export default function ChatPage() {
     if (!scanResult) return;
 
     const session = getOrCreateChatSession(scanId, currentProfile.id);
-    setMessages(session.messages);
+    // Filter out system messages and map to the expected format
+    setMessages(
+      session.messages
+        .filter((msg) => msg.role === "user" || msg.role === "ai")
+        .map((msg) => ({ role: msg.role as "user" | "ai", text: msg.text }))
+    );
 
     // Add initial AI message if empty
     if (session.messages.length === 0) {
