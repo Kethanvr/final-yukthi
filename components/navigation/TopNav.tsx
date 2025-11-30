@@ -26,11 +26,11 @@ export function TopNav() {
   ];
 
   return (
-    <nav className="hidden lg:block bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+    <nav className="hidden lg:block bg-white border-b border-stone-200 sticky top-0 z-40 shadow-sm">
       <div className="max-w-screen-xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/home" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-gray-900">
+            <span className="text-xl font-bold text-slate-900">
               InstaScan
             </span>
           </Link>
@@ -45,7 +45,7 @@ export function TopNav() {
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors min-h-[44px] ${
                     isActive
                       ? "bg-slate-50 text-slate-600"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                      : "text-slate-600 hover:bg-stone-50 hover:text-slate-900"
                   }`}
                 >
                   <IconComponent className="w-5 h-5" />
