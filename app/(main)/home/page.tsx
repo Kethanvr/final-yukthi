@@ -45,14 +45,14 @@ export default function HomePage() {
   const recentScans = scanResults.slice(0, 6);
 
   return (
-    <div className="min-h-screen pb-20 lg:pb-6 bg-stone-50">
+    <div className="min-h-screen pb-20 lg:pb-6 bg-blue-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-10 lg:py-12">
         <div className="max-w-screen-xl mx-auto">
           <div className="flex justify-between items-start mb-4 sm:mb-6 lg:mb-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 text-slate-900">InstaScan</h1>
-              <p className="text-slate-600 text-xs sm:text-sm md:text-base lg:text-lg">Smart Safety Scanner</p>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 text-blue-900">InstaScan</h1>
+              <p className="text-blue-600 text-xs sm:text-sm md:text-base lg:text-lg">Smart Safety Scanner</p>
             </div>
             <ProfileSwitcher
               profiles={allProfiles}
@@ -65,20 +65,20 @@ export default function HomePage() {
           <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
             <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <CardContent className="p-4 sm:p-5 md:p-6 text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-slate-700">{myScans.length}</div>
-                <div className="text-xs sm:text-sm md:text-base text-slate-600 font-medium">Total Scans</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-blue-700">{myScans.length}</div>
+                <div className="text-xs sm:text-sm md:text-base text-blue-600 font-medium">Total Scans</div>
               </CardContent>
             </Card>
             <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <CardContent className="p-4 sm:p-5 md:p-6 text-center">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-red-600">{unsafeCount}</div>
-                <div className="text-xs sm:text-sm md:text-base text-slate-600 font-medium">Unsafe Items</div>
+                <div className="text-xs sm:text-sm md:text-base text-blue-600 font-medium">Unsafe Items</div>
               </CardContent>
             </Card>
             <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <CardContent className="p-4 sm:p-5 md:p-6 text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-slate-700">{allProfiles.length}</div>
-                <div className="text-xs sm:text-sm md:text-base text-slate-600 font-medium">Profiles</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-blue-700">{allProfiles.length}</div>
+                <div className="text-xs sm:text-sm md:text-base text-blue-600 font-medium">Profiles</div>
               </CardContent>
             </Card>
           </div>
@@ -88,17 +88,17 @@ export default function HomePage() {
       {/* Main Content */}
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-10 space-y-4 sm:space-y-6 md:space-y-8">
         {/* Welcome Card */}
-        <Card className="bg-white border border-gray-200 shadow-sm">
+        <Card className="bg-white border border-blue-200 shadow-sm">
           <CardContent className="p-5 sm:p-6 md:p-7 lg:p-8">
             <div className="flex items-center gap-4 md:gap-5">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
                 <span className="text-2xl sm:text-3xl md:text-4xl">👋</span>
               </div>
               <div className="flex-1">
-                <h2 className="font-semibold text-slate-900 text-lg sm:text-xl md:text-2xl">
+                <h2 className="font-semibold text-blue-900 text-lg sm:text-xl md:text-2xl">
                   Welcome back, {currentProfile.name}!
                 </h2>
-                <p className="text-sm sm:text-base md:text-lg text-slate-600 mt-1">
+                <p className="text-sm sm:text-base md:text-lg text-blue-600 mt-1">
                   Tap the camera button to scan a product
                 </p>
               </div>
@@ -153,10 +153,10 @@ export default function HomePage() {
                     </div>
                   </div>
                   <CardContent className="p-3 sm:p-4">
-                    <h3 className="font-semibold text-sm sm:text-base line-clamp-2 text-slate-900 mb-1">
+                    <h3 className="font-semibold text-sm sm:text-base line-clamp-2 text-blue-900 mb-1">
                       {scan.product.name}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600">{scan.product.brand}</p>
+                    <p className="text-xs sm:text-sm text-blue-600">{scan.product.brand}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -165,11 +165,11 @@ export default function HomePage() {
         ) : (
           <Card>
             <CardContent className="p-8 sm:p-12 md:p-16 lg:p-20 text-center">
-              <CameraIcon className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto text-stone-300 mb-3 sm:mb-4 md:mb-5" />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 mb-2">
+              <CameraIcon className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto text-blue-300 mb-3 sm:mb-4 md:mb-5" />
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-blue-900 mb-2">
                 No scans yet
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-slate-600">
+              <p className="text-sm sm:text-base md:text-lg text-blue-600">
                 Start by scanning your first product
               </p>
             </CardContent>
