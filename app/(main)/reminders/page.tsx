@@ -20,14 +20,14 @@ export default function RemindersPage() {
   return (
     <div className="min-h-screen pb-20 lg:pb-6">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
+      <div className="bg-white border-b border-stone-200 px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
         <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Reminders</h1>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900">Reminders</h1>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="bg-white border-b border-gray-200 px-4 md:px-6 lg:px-8">
+      <div className="bg-white border-b border-stone-200 px-4 md:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <div className="flex gap-6 md:gap-8 lg:gap-10">
             <button
@@ -35,7 +35,7 @@ export default function RemindersPage() {
               className={`pb-3 md:pb-4 px-1 md:px-2 border-b-2 transition-colors min-h-[44px] flex items-center text-sm md:text-base lg:text-lg ${
                 activeTab === "expiry"
                   ? "border-slate-600 text-slate-600 font-medium"
-                  : "border-transparent text-gray-600 hover:text-gray-900"
+                  : "border-transparent text-slate-600 hover:text-slate-900"
               }`}
             >
               Expiry Tracker
@@ -45,7 +45,7 @@ export default function RemindersPage() {
               className={`pb-3 md:pb-4 px-1 md:px-2 border-b-2 transition-colors min-h-[44px] flex items-center text-sm md:text-base lg:text-lg ${
                 activeTab === "medicine"
                   ? "border-slate-600 text-slate-600 font-medium"
-                  : "border-transparent text-gray-600 hover:text-gray-900"
+                  : "border-transparent text-slate-600 hover:text-slate-900"
               }`}
             >
               Medicine Intake
@@ -60,16 +60,16 @@ export default function RemindersPage() {
             {expiryItems.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-5 lg:p-6 hover:shadow-md transition-shadow"
+                className="bg-white rounded-lg shadow-sm border border-stone-200 p-4 md:p-5 lg:p-6 hover:shadow-md transition-shadow"
               >
                 <div className="flex justify-between items-start mb-3 md:mb-4">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-900 text-base md:text-lg mb-1 md:mb-2">{item.name}</h3>
+                    <h3 className="font-semibold text-slate-900 text-base md:text-lg mb-1 md:mb-2">{item.name}</h3>
                     <p
                       className={`text-sm md:text-base ${
                         item.status === "urgent"
                           ? "text-red-600 font-medium"
-                          : "text-gray-600"
+                          : "text-slate-600"
                       }`}
                     >
                       Expires in {item.expiresIn}
@@ -87,7 +87,7 @@ export default function RemindersPage() {
             {medicineSchedule.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-5 lg:p-6 hover:shadow-md transition-shadow"
+                className="bg-white rounded-lg shadow-sm border border-stone-200 p-4 md:p-5 lg:p-6 hover:shadow-md transition-shadow"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3 md:gap-4 flex-1">
@@ -98,8 +98,8 @@ export default function RemindersPage() {
                       onChange={() => {}}
                     />
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-gray-900 text-base md:text-lg">{item.name}</h3>
-                      <p className="text-sm md:text-base text-gray-600 mt-1">{item.schedule}</p>
+                      <h3 className="font-semibold text-slate-900 text-base md:text-lg">{item.name}</h3>
+                      <p className="text-sm md:text-base text-slate-600 mt-1">{item.schedule}</p>
                     </div>
                   </div>
                   {item.taken && (
