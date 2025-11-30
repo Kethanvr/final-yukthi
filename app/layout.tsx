@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   viewport: {
     width: "device-width",
     initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
+    maximumScale: 1,
+    userScalable: false,
     viewportFit: "cover", // For notched devices (iOS safe area)
   },
-  themeColor: "#3B82F6", // Blue-600
+  themeColor: "#475569", // Slate-600
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
