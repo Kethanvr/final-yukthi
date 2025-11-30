@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { BottomNav } from "@/components/navigation/BottomNav";
-import { FloatingScanButton } from "@/components/navigation/FloatingScanButton";
 
 export default function RemindersPage() {
   const [activeTab, setActiveTab] = useState<"expiry" | "medicine">("expiry");
@@ -120,8 +119,6 @@ export default function RemindersPage() {
           </div>
         )}
       </div>
-
-      <FloatingScanButton />
       <BottomNav />
     </div>
   );
