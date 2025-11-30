@@ -20,32 +20,32 @@ export default function RemindersPage() {
   return (
     <div className="min-h-screen pb-20 lg:pb-6">
       {/* Header */}
-      <div className="bg-white border-b border-stone-200 px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
+      <div className="bg-white border-b border-blue-200 px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
         <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900">Reminders</h1>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900">Reminders</h1>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="bg-white border-b border-stone-200 px-4 md:px-6 lg:px-8">
+      <div className="bg-white border-b border-blue-200 px-4 md:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <div className="flex gap-6 md:gap-8 lg:gap-10">
             <button
               onClick={() => setActiveTab("expiry")}
-              className={`pb-3 md:pb-4 px-1 md:px-2 border-b-2 transition-colors min-h-[44px] flex items-center text-sm md:text-base lg:text-lg ${
+              className={`pb-3 md:pb-4 px-1 md:px-2 border-b-2 transition-colors min-h-[44px] flex items-center text-sm md:text-base lg:text-lg font-medium ${
                 activeTab === "expiry"
-                  ? "border-slate-600 text-slate-600 font-medium"
-                  : "border-transparent text-slate-600 hover:text-slate-900"
+                  ? "border-blue-600 text-blue-600"
+                  : "border-transparent text-blue-600 hover:text-blue-800"
               }`}
             >
               Expiry Tracker
             </button>
             <button
               onClick={() => setActiveTab("medicine")}
-              className={`pb-3 md:pb-4 px-1 md:px-2 border-b-2 transition-colors min-h-[44px] flex items-center text-sm md:text-base lg:text-lg ${
+              className={`pb-3 md:pb-4 px-1 md:px-2 border-b-2 transition-colors min-h-[44px] flex items-center text-sm md:text-base lg:text-lg font-medium ${
                 activeTab === "medicine"
-                  ? "border-slate-600 text-slate-600 font-medium"
-                  : "border-transparent text-slate-600 hover:text-slate-900"
+                  ? "border-blue-600 text-blue-600"
+                  : "border-transparent text-blue-600 hover:text-blue-800"
               }`}
             >
               Medicine Intake
@@ -60,23 +60,26 @@ export default function RemindersPage() {
             {expiryItems.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-lg shadow-sm border border-stone-200 p-4 md:p-5 lg:p-6 hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl shadow-sm border border-blue-200 p-5 md:p-6 hover:shadow-md transition-all"
               >
-                <div className="flex justify-between items-start mb-3 md:mb-4">
+                <div className="flex justify-between items-start mb-4 md:mb-5">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-slate-900 text-base md:text-lg mb-1 md:mb-2">{item.name}</h3>
-                    <p
-                      className={`text-sm md:text-base ${
-                        item.status === "urgent"
-                          ? "text-red-600 font-medium"
-                          : "text-slate-600"
-                      }`}
-                    >
-                      Expires in {item.expiresIn}
-                    </p>
+                    <h3 className="font-semibold text-blue-900 text-lg md:text-xl mb-2">{item.name}</h3>
+                    <div className="flex items-center gap-2">
+                      <div className={`w-2 h-2 rounded-full ${item.status === "urgent" ? "bg-red-500" : "bg-green-500"}`} />
+                      <p
+                        className={`text-sm md:text-base font-medium ${
+                          item.status === "urgent"
+                            ? "text-red-600"
+                            : "text-blue-600"
+                        }`}
+                      >
+                        Expires in {item.expiresIn}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <button className="w-full px-4 py-2 md:py-2.5 bg-slate-100 text-slate-700 text-sm md:text-base rounded-full hover:bg-slate-200 transition-colors min-h-[44px]">
+                <button className="w-full px-4 py-3 bg-blue-50 text-blue-700 text-sm md:text-base rounded-lg hover:bg-blue-100 transition-colors min-h-[44px] font-medium border border-blue-200">
                   Mark as Consumed
                 </button>
               </div>
@@ -87,23 +90,29 @@ export default function RemindersPage() {
             {medicineSchedule.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-lg shadow-sm border border-stone-200 p-4 md:p-5 lg:p-6 hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl shadow-sm border border-blue-200 p-5 md:p-6 hover:shadow-md transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3 md:gap-4 flex-1">
-                    <input
-                      type="checkbox"
-                      checked={item.taken}
-                      className="w-5 h-5 md:w-6 md:h-6 cursor-pointer"
-                      onChange={() => {}}
-                    />
+                  <div className="flex items-center gap-4 md:gap-5 flex-1">
+                    <div className="relative">
+                      <input
+                        type="checkbox"
+                        checked={item.taken}
+                        className="w-6 h-6 md:w-7 md:h-7 cursor-pointer accent-blue-600"
+                        onChange={() => {}}
+                      />
+                    </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-slate-900 text-base md:text-lg">{item.name}</h3>
-                      <p className="text-sm md:text-base text-slate-600 mt-1">{item.schedule}</p>
+                      <h3 className="font-semibold text-blue-900 text-lg md:text-xl">{item.name}</h3>
+                      <p className="text-sm md:text-base text-blue-600 mt-1.5 font-medium">{item.schedule}</p>
                     </div>
                   </div>
                   {item.taken && (
-                    <span className="text-green-600 text-xl md:text-2xl flex-shrink-0">✓</span>
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
                   )}
                 </div>
               </div>
