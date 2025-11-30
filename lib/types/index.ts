@@ -168,6 +168,9 @@ export interface Reminder {
   schedule?: string; // For medicine intake
   isCompleted: boolean;
   createdAt: string;
+  scanId?: string; // Associated scan result ID
+  productImageUrl?: string; // Product image URL
+  isPacked?: boolean; // Whether product is packed (has expiry date)
 }
 
 // Onboarding Step Data
