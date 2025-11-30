@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { UserProfile, BiologicalSex, SkinType, SensitivityLevel, AlertSensitivity } from "@/lib/types";
@@ -10,7 +10,7 @@ import { FOOD_ALLERGENS, COSMETIC_ALLERGENS, DRUG_ALLERGENS, DIETARY_PREFERENCES
 import { BottomNav } from "@/components/navigation/BottomNav";
 import { CameraIcon } from "@heroicons/react/24/outline";
 
-export default function OnboardingWizardPage() {
+function WizardContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const editProfileId = searchParams.get("edit");
@@ -665,6 +665,18 @@ export default function OnboardingWizardPage() {
       </div>
       {isEditMode && <BottomNav />}
     </div>
+  );
+}
+
+export default function OnboardingWizardPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="animate-spin w-12 h-12 border-4 border-slate-600 border-t-transparent rounded-full" />
+      </div>
+    }>
+      <WizardContent />
+    </Suspense>
   );
 }
 
