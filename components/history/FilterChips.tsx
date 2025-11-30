@@ -31,14 +31,14 @@ export function FilterChips({
           <button
             key={category}
             onClick={() => onCategoryChange(category)}
-            className={`flex items-center gap-1.5 md:gap-2 px-4 md:px-5 lg:px-6 py-2 md:py-2.5 rounded-full whitespace-nowrap transition-colors min-h-[44px] ${
+            className={`flex items-center gap-2 md:gap-2.5 px-5 md:px-6 py-2.5 md:py-3 rounded-full whitespace-nowrap transition-all min-h-[44px] font-medium shadow-sm ${
               isSelected
-                ? "bg-blue-600 text-white hover:bg-blue-700"
-                : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+                ? "bg-slate-600 text-white hover:bg-slate-700 shadow-md scale-105"
+                : "bg-white text-slate-700 border border-stone-300 hover:bg-stone-50 hover:border-stone-400"
             }`}
           >
-            <span className="text-base md:text-lg">{config.icon}</span>
-            <span className="text-sm md:text-base font-medium">{config.label}</span>
+            <span className="text-lg md:text-xl">{config.icon}</span>
+            <span className="text-sm md:text-base">{config.label}</span>
           </button>
         );
       })}
