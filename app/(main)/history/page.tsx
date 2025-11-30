@@ -10,6 +10,14 @@ import { ProductCategory } from "@/lib/types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import {
+  CheckCircleIcon,
+  ExclamationTriangleIcon,
+  XCircleIcon,
+  UserIcon,
+  FolderIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/24/solid";
 
 export default function HistoryPage() {
   const router = useRouter();
@@ -49,8 +57,8 @@ export default function HistoryPage() {
   return (
     <div className="min-h-screen pb-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 py-4 shadow-sm">
-        <h1 className="text-2xl font-bold text-gray-900 mb-4">Scan History</h1>
+      <div className="bg-white border-b border-gray-200 px-3 sm:px-4 py-3 sm:py-4 shadow-sm">
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Scan History</h1>
 
         {/* Search */}
         <input
@@ -58,11 +66,11 @@ export default function HistoryPage() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search products..."
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm"
+          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm"
         />
       </div>
 
-      <div className="max-w-screen-xl mx-auto px-4 py-4 space-y-4">
+      <div className="max-w-screen-xl mx-auto px-3 sm:px-4 py-3 sm:py-4 space-y-3 sm:space-y-4">
         {/* Filters */}
         <FilterChips
           categories={["All", "Food", "Cosmetic", "Medicine", "Unsafe"]}
@@ -72,17 +80,17 @@ export default function HistoryPage() {
 
         {/* Results */}
         {filteredResults.length > 0 ? (
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             {filteredResults.map((scan) => (
               <Card
                 key={scan.id}
-                className="cursor-pointer hover:shadow-lg transition-all duration-200 overflow-hidden"
+                className="cursor-pointer hover:shadow-lg active:scale-[0.98] transition-all duration-200 overflow-hidden"
                 onClick={() => router.push(`/results/${scan.id}`)}
               >
                 <CardContent className="p-0">
-                  <div className="flex gap-4 p-4">
+                  <div className="flex gap-3 sm:gap-4 p-3 sm:p-4">
                     {/* Product Image */}
-                    <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
                       <Image
                         src={scan.product.imageUrl}
                         alt={scan.product.name}
@@ -93,12 +101,12 @@ export default function HistoryPage() {
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-2 mb-2">
+                      <div className="flex items-start justify-between gap-2 mb-1.5 sm:mb-2">
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-gray-900 line-clamp-1">
+                          <h3 className="font-semibold text-sm sm:text-base text-gray-900 line-clamp-1">
                             {scan.product.name}
                           </h3>
-                          <p className="text-sm text-gray-500">{scan.product.brand}</p>
+                          <p className="text-xs sm:text-sm text-gray-500">{scan.product.brand}</p>
                         </div>
                         <Badge
                           className={
@@ -109,13 +117,19 @@ export default function HistoryPage() {
                               : "bg-red-500 hover:bg-red-600"
                           }
                         >
-                          {scan.verdict.badge === "SAFE" ? "🟢" : scan.verdict.badge === "CAUTION" ? "🟡" : "🔴"}
+                          {scan.verdict.badge === "SAFE" ? (
+                            <CheckCircleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          ) : scan.verdict.badge === "CAUTION" ? (
+                            <ExclamationTriangleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          ) : (
+                            <XCircleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          )}
                         </Badge>
                       </div>
 
-                      <div className="flex items-center gap-2 text-xs text-gray-600">
+                      <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-600">
                         <span className="flex items-center gap-1">
-                          <span>👤</span>
+                          <UserIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                           {scan.profileName}
                         </span>
                         <span>•</span>
@@ -125,14 +139,7 @@ export default function HistoryPage() {
 
                     {/* Chevron */}
                     <div className="flex items-center text-gray-400">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
+                      <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                   </div>
                 </CardContent>
@@ -141,12 +148,12 @@ export default function HistoryPage() {
           </div>
         ) : (
           <Card>
-            <CardContent className="p-12 text-center">
-              <div className="text-6xl mb-4">📂</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+            <CardContent className="p-8 sm:p-12 text-center">
+              <FolderIcon className="w-16 h-16 sm:w-20 sm:h-20 mx-auto text-gray-300 mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                 No results found
               </h3>
-              <p className="text-gray-600">
+              <p className="text-sm sm:text-base text-gray-600">
                 {searchQuery ? "Try a different search" : "Start scanning products to build your history"}
               </p>
             </CardContent>
