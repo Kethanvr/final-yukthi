@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/lib/context/AppContext";
@@ -14,19 +14,20 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "InstaScan - Smart Product Safety Scanner",
   description: "Scan products to check safety for your family's health profile",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: "cover", // For notched devices (iOS safe area)
-  },
-  themeColor: "#475569", // Slate-600
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "InstaScan",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover", // For notched devices (iOS safe area)
+  themeColor: "#3B82F6", // Blue-600
 };
 
 export default function RootLayout({
