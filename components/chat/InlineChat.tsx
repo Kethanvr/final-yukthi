@@ -101,25 +101,25 @@ export function InlineChat({ scanId }: InlineChatProps) {
       {isOpen && (
         <div
           ref={chatContainerRef}
-          className="fixed md:relative bottom-0 left-0 right-0 md:bottom-auto md:left-auto md:right-auto w-full md:w-full bg-white border-t md:border border-gray-200 rounded-t-2xl md:rounded-xl shadow-xl md:shadow-sm z-50 md:z-auto flex flex-col"
+          className="fixed md:relative bottom-0 left-0 right-0 md:bottom-auto md:left-auto md:right-auto w-full md:w-full bg-white border-t md:border border-stone-200 rounded-t-2xl md:rounded-xl shadow-xl md:shadow-sm z-50 md:z-auto flex flex-col"
           style={{
             height: isOpen ? "70vh" : "0",
             maxHeight: "600px",
           }}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 md:px-5 py-3 md:py-4 border-b border-gray-200">
+          <div className="flex items-center justify-between px-4 md:px-5 py-3 md:py-4 border-b border-stone-200">
             <div>
-              <h3 className="font-semibold text-gray-900">AI Assistant</h3>
-              <p className="text-xs text-gray-600">
+              <h3 className="font-semibold text-slate-900">AI Assistant</h3>
+              <p className="text-xs text-slate-600">
                 Analyzing for {currentProfile?.name}
               </p>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
-            >
-              <XMarkIcon className="w-5 h-5 text-gray-600" />
+                  className="w-8 h-8 rounded-full hover:bg-stone-100 flex items-center justify-center transition-colors"
+                >
+                  <XMarkIcon className="w-5 h-5 text-slate-600" />
             </button>
           </div>
 
@@ -134,7 +134,7 @@ export function InlineChat({ scanId }: InlineChatProps) {
                   className={`max-w-[85%] rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base ${
                     msg.role === "user"
                       ? "bg-slate-600 text-white"
-                      : "bg-gray-100 text-gray-900"
+                      : "bg-stone-100 text-slate-900"
                   }`}
                 >
                   {msg.text}
@@ -143,11 +143,11 @@ export function InlineChat({ scanId }: InlineChatProps) {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-gray-100 rounded-lg px-3 md:px-4 py-2 md:py-3">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+                  <div className="bg-stone-100 rounded-lg px-3 md:px-4 py-2 md:py-3">
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 bg-stone-400 rounded-full animate-bounce" />
+                      <div className="w-2 h-2 bg-stone-400 rounded-full animate-bounce delay-100" />
+                      <div className="w-2 h-2 bg-stone-400 rounded-full animate-bounce delay-200" />
                   </div>
                 </div>
               </div>
@@ -156,7 +156,7 @@ export function InlineChat({ scanId }: InlineChatProps) {
           </div>
 
           {/* Input */}
-          <div className="border-t border-gray-200 px-4 md:px-5 py-3 md:py-4">
+          <div className="border-t border-stone-200 px-4 md:px-5 py-3 md:py-4">
             <div className="flex gap-2">
               <input
                 type="text"
@@ -164,7 +164,7 @@ export function InlineChat({ scanId }: InlineChatProps) {
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSend()}
                 placeholder="Ask about this product..."
-                className="flex-1 px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                className="flex-1 px-4 py-2 text-sm md:text-base border border-stone-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
               />
               <button
                 onClick={handleSend}
