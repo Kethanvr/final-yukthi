@@ -5,7 +5,7 @@ import { BottomNav } from "@/components/navigation/BottomNav";
 import { FloatingScanButton } from "@/components/navigation/FloatingScanButton";
 import { ProfileCard } from "@/components/profile/ProfileCard";
 import { useApp } from "@/lib/context/AppContext";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -33,8 +33,10 @@ export default function ProfilePage() {
       <div className="max-w-screen-xl mx-auto px-4 py-6 space-y-6">
         {/* Health Profile */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <h2 className="font-semibold text-gray-900 mb-4">🏥 Health Profile</h2>
-          
+          <h2 className="font-semibold text-gray-900 mb-4">
+            🏥 Health Profile
+          </h2>
+
           {currentProfile.chronicConditions.length > 0 && (
             <div className="mb-4">
               <div className="text-sm font-medium text-gray-700 mb-2">
@@ -118,14 +120,18 @@ export default function ProfilePage() {
             </div>
             <div>
               <div className="text-sm text-gray-600">Sensitivity</div>
-              <div className="font-medium">{currentProfile.skinSensitivity}</div>
+              <div className="font-medium">
+                {currentProfile.skinSensitivity}
+              </div>
             </div>
           </div>
         </div>
 
         {/* Family Profiles */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <h2 className="font-semibold text-gray-900 mb-4">👨‍👩‍👧‍👦 Family Profiles</h2>
+          <h2 className="font-semibold text-gray-900 mb-4">
+            👨‍👩‍👧‍👦 Family Profiles
+          </h2>
           <div className="space-y-3">
             {allProfiles.map((profile) => (
               <ProfileCard
@@ -190,5 +196,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-
-
