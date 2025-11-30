@@ -22,7 +22,7 @@ export function FilterChips({
   };
 
   return (
-    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+    <div className="flex gap-2 md:gap-3 overflow-x-auto pb-2 md:pb-3 scrollbar-hide lg:overflow-x-visible lg:flex-wrap">
       {categories.map((category) => {
         const config = categoryConfig[category];
         const isSelected = selectedCategory === category;
@@ -31,14 +31,14 @@ export function FilterChips({
           <button
             key={category}
             onClick={() => onCategoryChange(category)}
-            className={`flex items-center gap-1.5 px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+            className={`flex items-center gap-1.5 md:gap-2 px-4 md:px-5 lg:px-6 py-2 md:py-2.5 rounded-full whitespace-nowrap transition-colors min-h-[44px] ${
               isSelected
-                ? "bg-blue-600 text-white"
+                ? "bg-blue-600 text-white hover:bg-blue-700"
                 : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
             }`}
           >
-            <span>{config.icon}</span>
-            <span className="text-sm font-medium">{config.label}</span>
+            <span className="text-base md:text-lg">{config.icon}</span>
+            <span className="text-sm md:text-base font-medium">{config.label}</span>
           </button>
         );
       })}
