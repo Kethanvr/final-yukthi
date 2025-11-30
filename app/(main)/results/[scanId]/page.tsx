@@ -8,7 +8,12 @@ import { ResultHeader } from "@/components/scan/ResultHeader";
 import { ProfileSwitcher } from "@/components/profile/ProfileSwitcher";
 import { useApp } from "@/lib/context/AppContext";
 import { analyzeSafety } from "@/lib/utils/safetyAnalysis";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
+import {
+  BoltIcon,
+  ChartBarIcon,
+  BeakerIcon,
+} from "@heroicons/react/24/outline";
 
 export default function ResultsPage() {
   const params = useParams();
@@ -107,7 +112,10 @@ export default function ResultsPage() {
 
         {groupedDataPoints.warning.length > 0 && (
           <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
-            <h3 className="font-semibold text-yellow-900 mb-3">⚡ Warnings</h3>
+            <h3 className="font-semibold text-yellow-900 mb-3 flex items-center gap-2">
+              <BoltIcon className="w-5 h-5" />
+              Warnings
+            </h3>
             <div className="space-y-2">
               {groupedDataPoints.warning.map((dp, i) => (
                 <DataPointCard key={i} dataPoint={dp} />
@@ -119,7 +127,10 @@ export default function ResultsPage() {
         {/* Category-Specific Details */}
         {product.category === "Food" && product.nutrition && (
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">📊 Nutrition Facts</h3>
+            <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <ChartBarIcon className="w-5 h-5" />
+              Nutrition Facts
+            </h3>
             <div className="grid grid-cols-2 gap-3">
               <NutritionItem label="Calories" value={product.nutrition.calories} />
               <NutritionItem label="Sugar" value={product.nutrition.sugar} />
@@ -134,7 +145,10 @@ export default function ResultsPage() {
 
         {product.category === "Medicine" && product.medicineInfo && (
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">💊 Medicine Info</h3>
+            <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <BeakerIcon className="w-5 h-5" />
+              Medicine Info
+            </h3>
             <div className="space-y-3">
               <div>
                 <div className="text-sm font-medium text-gray-700">Active Ingredient</div>
