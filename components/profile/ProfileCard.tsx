@@ -1,45 +1,60 @@
 import { UserProfile } from "@/lib/types";
 import { Avatar } from "./Avatar";
+import { PencilIcon } from "@heroicons/react/24/outline";
 
 interface ProfileCardProps {
   profile: UserProfile;
   onClick?: () => void;
+  onEdit?: () => void;
 }
 
-export function ProfileCard({ profile, onClick }: ProfileCardProps) {
+export function ProfileCard({ profile, onClick, onEdit }: ProfileCardProps) {
+  const handleEditClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onEdit) {
+      onEdit();
+    }
+  };
+
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-lg shadow-sm border border-blue-200 p-3 md:p-4 lg:p-5 hover:shadow-md transition-shadow cursor-pointer active:scale-[0.98] lg:active:scale-100 min-h-[80px] md:min-h-[100px]"
+      className="bg-white rounded-lg border border-slate-200 p-4 hover:border-slate-300 transition-colors cursor-pointer"
     >
-      <div className="flex items-center gap-3 md:gap-4">
+      <div className="flex items-start gap-3">
         <Avatar profile={profile} size="md" />
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-blue-900 text-sm md:text-base lg:text-lg">
-            {profile.name}
-          </h3>
-          <p className="text-xs md:text-sm text-blue-600 mt-1">
-            {profile.age} years • {profile.biologicalSex}
-          </p>
-        </div>
-      </div>
-      {profile.chronicConditions.length > 0 && (
-        <div className="mt-3 md:mt-4 flex flex-wrap gap-1 md:gap-2">
-          {profile.chronicConditions.slice(0, 2).map((condition) => (
-            <span
-              key={condition}
-              className="text-xs md:text-sm bg-blue-100 text-blue-700 px-2 md:px-3 py-1 rounded"
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="font-medium text-slate-900 text-sm md:text-base">
+                {profile.name}
+              </h3>
+              <p className="text-xs md:text-sm text-slate-600 mt-0.5">
+                {profile.age} yrs
+              </p>
+            </div>
+            <button
+              onClick={handleEditClick}
+              className="p-1.5 hover:bg-slate-100 rounded-full transition-colors flex-shrink-0"
+              aria-label="Edit profile"
             >
-              {condition}
-            </span>
-          ))}
-          {profile.chronicConditions.length > 2 && (
-            <span className="text-xs md:text-sm text-blue-500">
-              +{profile.chronicConditions.length - 2} more
-            </span>
+              <PencilIcon className="w-5 h-5 text-slate-500 hover:text-blue-600" />
+            </button>
+          </div>
+          {profile.chronicConditions.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {profile.chronicConditions.map((condition) => (
+                <span
+                  key={condition}
+                  className="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md font-medium"
+                >
+                  {condition}
+                </span>
+              ))}
+            </div>
           )}
         </div>
-      )}
+      </div>
     </div>
   );
 }
