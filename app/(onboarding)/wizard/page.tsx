@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { UserProfile, BiologicalSex, SkinType, SensitivityLevel, AlertSensitivity } from "@/lib/types";
 import { useApp } from "@/lib/context/AppContext";
 import { CHRONIC_CONDITIONS, DERMATOLOGICAL_CONDITIONS, CURRENT_MEDICATIONS } from "@/lib/constants/conditions";
