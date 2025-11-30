@@ -5,7 +5,7 @@ import { BottomNav } from "@/components/navigation/BottomNav";
 import { FloatingScanButton } from "@/components/navigation/FloatingScanButton";
 import { ProfileCard } from "@/components/profile/ProfileCard";
 import { useApp } from "@/lib/context/AppContext";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -16,178 +16,181 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen pb-20 bg-gray-50">
+    <div className="min-h-screen pb-20 lg:pb-6 bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white px-4 py-8">
+      <div className="bg-white border-b border-gray-200 px-4 md:px-6 lg:px-8 py-8 md:py-10 lg:py-12">
         <div className="max-w-screen-xl mx-auto text-center">
-          <div className="w-24 h-24 mx-auto rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-4xl font-bold mb-4">
+          <div className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mx-auto rounded-full bg-slate-500 flex items-center justify-center text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-5 lg:mb-6 text-white">
             {currentProfile.name.charAt(0).toUpperCase()}
           </div>
-          <h1 className="text-2xl font-bold">{currentProfile.name}</h1>
-          <p className="text-blue-100">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">{currentProfile.name}</h1>
+          <p className="text-gray-600 text-base md:text-lg lg:text-xl mt-2">
             {currentProfile.age} years • {currentProfile.biologicalSex}
           </p>
         </div>
       </div>
 
-      <div className="max-w-screen-xl mx-auto px-4 py-6 space-y-6">
-        {/* Health Profile */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <h2 className="font-semibold text-gray-900 mb-4">
-            🏥 Health Profile
-          </h2>
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 py-6 md:py-8 lg:py-10">
+        {/* Desktop: 2-column grid, Mobile: single column */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          {/* Health Profile */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-5 lg:p-6">
+            <h2 className="font-semibold text-gray-900 mb-4 md:mb-5 text-base md:text-lg lg:text-xl">
+              🏥 Health Profile
+            </h2>
 
-          {currentProfile.chronicConditions.length > 0 && (
-            <div className="mb-4">
-              <div className="text-sm font-medium text-gray-700 mb-2">
-                Medical Conditions
+            {currentProfile.chronicConditions.length > 0 && (
+              <div className="mb-4 md:mb-5">
+                <div className="text-sm md:text-base font-medium text-gray-700 mb-2 md:mb-3">
+                  Medical Conditions
+                </div>
+                <div className="flex flex-wrap gap-2 md:gap-3">
+                  {currentProfile.chronicConditions.map((condition) => (
+                    <span
+                      key={condition}
+                      className="px-3 py-1 md:px-4 md:py-1.5 bg-slate-100 text-slate-700 text-sm md:text-base rounded-full"
+                    >
+                      {condition}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {currentProfile.chronicConditions.map((condition) => (
-                  <span
-                    key={condition}
-                    className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full"
-                  >
-                    {condition}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
+            )}
 
-          {currentProfile.foodAllergies.length > 0 && (
-            <div className="mb-4">
-              <div className="text-sm font-medium text-gray-700 mb-2">
-                Food Allergies
+            {currentProfile.foodAllergies.length > 0 && (
+              <div className="mb-4 md:mb-5">
+                <div className="text-sm md:text-base font-medium text-gray-700 mb-2 md:mb-3">
+                  Food Allergies
+                </div>
+                <div className="flex flex-wrap gap-2 md:gap-3">
+                  {currentProfile.foodAllergies.map((allergy) => (
+                    <span
+                      key={allergy}
+                      className="px-3 py-1 md:px-4 md:py-1.5 bg-red-100 text-red-700 text-sm md:text-base rounded-full"
+                    >
+                      {allergy}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {currentProfile.foodAllergies.map((allergy) => (
-                  <span
-                    key={allergy}
-                    className="px-3 py-1 bg-red-100 text-red-700 text-sm rounded-full"
-                  >
-                    {allergy}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
+            )}
 
-          {currentProfile.drugAllergies.length > 0 && (
-            <div className="mb-4">
-              <div className="text-sm font-medium text-gray-700 mb-2">
-                Drug Allergies
+            {currentProfile.drugAllergies.length > 0 && (
+              <div className="mb-4 md:mb-5">
+                <div className="text-sm md:text-base font-medium text-gray-700 mb-2 md:mb-3">
+                  Drug Allergies
+                </div>
+                <div className="flex flex-wrap gap-2 md:gap-3">
+                  {currentProfile.drugAllergies.map((allergy) => (
+                    <span
+                      key={allergy}
+                      className="px-3 py-1 md:px-4 md:py-1.5 bg-red-100 text-red-700 text-sm md:text-base rounded-full"
+                    >
+                      {allergy}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {currentProfile.drugAllergies.map((allergy) => (
-                  <span
-                    key={allergy}
-                    className="px-3 py-1 bg-red-100 text-red-700 text-sm rounded-full"
-                  >
-                    {allergy}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
+            )}
 
-          {currentProfile.dietaryPreferences.length > 0 && (
-            <div>
-              <div className="text-sm font-medium text-gray-700 mb-2">
-                Dietary Preferences
+            {currentProfile.dietaryPreferences.length > 0 && (
+              <div>
+                <div className="text-sm md:text-base font-medium text-gray-700 mb-2 md:mb-3">
+                  Dietary Preferences
+                </div>
+                <div className="flex flex-wrap gap-2 md:gap-3">
+                  {currentProfile.dietaryPreferences.map((pref) => (
+                    <span
+                      key={pref}
+                      className="px-3 py-1 md:px-4 md:py-1.5 bg-slate-100 text-slate-700 text-sm md:text-base rounded-full"
+                    >
+                      {pref}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {currentProfile.dietaryPreferences.map((pref) => (
-                  <span
-                    key={pref}
-                    className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full"
-                  >
-                    {pref}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
 
-        {/* Skin Profile */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <h2 className="font-semibold text-gray-900 mb-4">💄 Skin Profile</h2>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <div className="text-sm text-gray-600">Skin Type</div>
-              <div className="font-medium">{currentProfile.skinType}</div>
-            </div>
-            <div>
-              <div className="text-sm text-gray-600">Sensitivity</div>
-              <div className="font-medium">
-                {currentProfile.skinSensitivity}
+          {/* Skin Profile */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-5 lg:p-6">
+            <h2 className="font-semibold text-gray-900 mb-4 md:mb-5 text-base md:text-lg lg:text-xl">💄 Skin Profile</h2>
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
+              <div>
+                <div className="text-sm md:text-base text-gray-600 mb-1">Skin Type</div>
+                <div className="font-medium text-base md:text-lg">{currentProfile.skinType}</div>
+              </div>
+              <div>
+                <div className="text-sm md:text-base text-gray-600 mb-1">Sensitivity</div>
+                <div className="font-medium text-base md:text-lg">
+                  {currentProfile.skinSensitivity}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Family Profiles */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <h2 className="font-semibold text-gray-900 mb-4">
-            👨‍👩‍👧‍👦 Family Profiles
-          </h2>
-          <div className="space-y-3">
-            {allProfiles.map((profile) => (
-              <ProfileCard
-                key={profile.id}
-                profile={profile}
-                onClick={() => setCurrentProfile(profile)}
-              />
-            ))}
-          </div>
-          <Button
-            onClick={() => router.push("/wizard")}
-            variant="outline"
-            className="w-full mt-4"
-          >
-            + Add New Profile
-          </Button>
-        </div>
-
-        {/* Settings */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <h2 className="font-semibold text-gray-900 mb-4">⚙️ Settings</h2>
-          <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700">Alert Sensitivity</span>
-              <span className="text-gray-900 font-medium">
-                {currentProfile.alertSensitivity}
-              </span>
+          {/* Family Profiles */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-5 lg:p-6 lg:col-span-2">
+            <h2 className="font-semibold text-gray-900 mb-4 md:mb-5 text-base md:text-lg lg:text-xl">
+              👨‍👩‍👧‍👦 Family Profiles
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              {allProfiles.map((profile) => (
+                <ProfileCard
+                  key={profile.id}
+                  profile={profile}
+                  onClick={() => setCurrentProfile(profile)}
+                />
+              ))}
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700">Expiry Reminders</span>
-              <span className="text-gray-900 font-medium">
-                {currentProfile.expiryReminders ? "Enabled" : "Disabled"}
-              </span>
+            <Button
+              onClick={() => router.push("/wizard")}
+              variant="outline"
+              className="w-full mt-4 md:mt-5"
+            >
+              + Add New Profile
+            </Button>
+          </div>
+
+          {/* Settings */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-5 lg:p-6">
+            <h2 className="font-semibold text-gray-900 mb-4 md:mb-5 text-base md:text-lg lg:text-xl">⚙️ Settings</h2>
+            <div className="space-y-3 md:space-y-4">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-700 text-sm md:text-base">Alert Sensitivity</span>
+                <span className="text-gray-900 font-medium text-sm md:text-base">
+                  {currentProfile.alertSensitivity}
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-700 text-sm md:text-base">Expiry Reminders</span>
+                <span className="text-gray-900 font-medium text-sm md:text-base">
+                  {currentProfile.expiryReminders ? "Enabled" : "Disabled"}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Actions */}
-        <div className="space-y-3">
-          <Button
-            onClick={() => router.push("/wizard")}
-            variant="outline"
-            className="w-full"
-          >
-            Edit Profile
-          </Button>
-          <Button
-            onClick={() => {
-              localStorage.clear();
-              router.push("/login");
-            }}
-            variant="destructive"
-            className="w-full"
-          >
-            Logout
-          </Button>
+          {/* Actions */}
+          <div className="space-y-3 md:space-y-4 lg:col-span-2">
+            <Button
+              onClick={() => router.push("/wizard")}
+              variant="outline"
+              className="w-full"
+            >
+              Edit Profile
+            </Button>
+            <Button
+              onClick={() => {
+                localStorage.clear();
+                router.push("/login");
+              }}
+              variant="destructive"
+              className="w-full"
+            >
+              Logout
+            </Button>
+          </div>
         </div>
       </div>
 
