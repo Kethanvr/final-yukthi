@@ -26,20 +26,20 @@ export function SafetyBadge({ badge, score, size = "md" }: SafetyBadgeProps) {
 
   const badgeConfig = {
     SAFE: {
-      bg: "bg-green-100",
-      text: "text-green-800",
+      bg: "bg-slate-100",
+      text: "text-slate-700",
       Icon: CheckCircleIcon,
       label: "SAFE",
     },
     CAUTION: {
-      bg: "bg-yellow-100",
-      text: "text-yellow-800",
+      bg: "bg-amber-50",
+      text: "text-amber-700",
       Icon: ExclamationTriangleIcon,
       label: "CAUTION",
     },
     UNSAFE: {
-      bg: "bg-red-100",
-      text: "text-red-800",
+      bg: "bg-red-50",
+      text: "text-red-700",
       Icon: XCircleIcon,
       label: "UNSAFE",
     },
