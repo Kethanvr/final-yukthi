@@ -6,7 +6,7 @@ import { getScanResultById } from "@/lib/mockData/scanResults";
 import { getOrCreateChatSession, addMessageToSession } from "@/lib/mockData/chatHistory";
 import { generateChatResponse } from "@/lib/utils/chatSimulator";
 import { useApp } from "@/lib/context/AppContext";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 export default function ChatPage() {
   const params = useParams();
