@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { extractProductData } from "@/lib/utils/productExtractor";
 import { analyzeSafety } from "@/lib/utils/safetyAnalysis";
 import { saveScanResult } from "@/lib/mockData/scanResults";
 import { useApp } from "@/lib/context/AppContext";
+import { CameraIcon } from "@heroicons/react/24/outline";
 
 export default function CameraPage() {
   const router = useRouter();
@@ -104,7 +105,7 @@ export default function CameraPage() {
         </div>
 
         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-white">
-          <div className="text-4xl mb-2">📷</div>
+          <CameraIcon className="w-16 h-16 mx-auto mb-2" />
           <p className="text-sm">
             {isScanning ? statusText : "Position product label within frame"}
           </p>
