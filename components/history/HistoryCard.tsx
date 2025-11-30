@@ -25,27 +25,27 @@ export function HistoryCard({ scanResult, onClick }: HistoryCardProps) {
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow cursor-pointer"
+      className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 md:p-4 lg:p-5 hover:shadow-md transition-shadow cursor-pointer active:scale-[0.98] lg:active:scale-100"
     >
-      <div className="flex gap-4">
+      <div className="flex gap-3 md:gap-4 lg:gap-5">
         {/* Product Icon */}
-        <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center text-3xl flex-shrink-0">
+        <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-gray-100 rounded-lg flex items-center justify-center text-2xl md:text-3xl flex-shrink-0">
           {CATEGORY_ICONS[product.category]}
         </div>
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-2">
+          <div className="flex items-start justify-between gap-2 md:gap-3">
             <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-gray-900 line-clamp-1">
+              <h3 className="font-semibold text-gray-900 line-clamp-1 md:line-clamp-2 text-sm md:text-base lg:text-lg">
                 {product.name}
               </h3>
-              <p className="text-sm text-gray-500">{product.brand}</p>
+              <p className="text-xs md:text-sm text-gray-500 mt-1">{product.brand}</p>
             </div>
             <SafetyBadge badge={verdict.badge} size="sm" />
           </div>
 
-          <div className="mt-2 flex items-center gap-2 text-xs text-gray-600">
+          <div className="mt-2 md:mt-3 flex items-center gap-2 text-xs md:text-sm text-gray-600">
             <span>👤 {profileName}</span>
             <span>•</span>
             <span>{formatDate(scannedAt)}</span>
@@ -53,8 +53,8 @@ export function HistoryCard({ scanResult, onClick }: HistoryCardProps) {
         </div>
 
         {/* Chevron */}
-        <div className="flex items-center text-gray-400">
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex items-center text-gray-400 flex-shrink-0">
+          <svg className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
