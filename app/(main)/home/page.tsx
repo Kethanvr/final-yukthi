@@ -3,19 +3,23 @@
 import { useApp } from "@/lib/context/AppContext";
 import { ProfileSwitcher } from "@/components/profile/ProfileSwitcher";
 import { BottomNav } from "@/components/navigation/BottomNav";
-import { FloatingScanButton } from "@/components/navigation/FloatingScanButton";
 import { getAllScanResults } from "@/lib/mockData/scanResults";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import {
+  CameraIcon,
+  ChartBarIcon,
+  ExclamationTriangleIcon as WarningIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/outline";
 import {
   CheckCircleIcon,
   ExclamationTriangleIcon,
   XCircleIcon,
-  CameraIcon,
 } from "@heroicons/react/24/solid";
+import { CATEGORY_HEROICONS } from "@/lib/constants/categories";
 
 export default function HomePage() {
   const router = useRouter();
@@ -34,25 +38,25 @@ export default function HomePage() {
 
   if (isLoading || !currentProfile) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full" />
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="animate-spin w-12 h-12 border-4 border-slate-600 border-t-transparent rounded-full" />
       </div>
     );
   }
 
   const myScans = scanResults.filter((s) => s.profileId === currentProfile.id);
   const unsafeCount = myScans.filter((s) => s.verdict.badge === "UNSAFE").length;
-  const recentScans = scanResults.slice(0, 6);
+  const recentScans = scanResults.slice(0, 3);
 
   return (
-    <div className="min-h-screen pb-20 lg:pb-6 bg-blue-50">
+    <div className="min-h-screen pb-20 lg:pb-24 bg-slate-50">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-10 lg:py-12">
+      <div className="bg-white border-b border-slate-200 px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-6">
         <div className="max-w-screen-xl mx-auto">
-          <div className="flex justify-between items-start mb-4 sm:mb-6 lg:mb-8">
+          <div className="flex justify-between items-center mb-4 sm:mb-5">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 text-blue-900">InstaScan</h1>
-              <p className="text-blue-600 text-xs sm:text-sm md:text-base lg:text-lg">Smart Safety Scanner</p>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-0.5 text-slate-900">InstaScan</h1>
+              <p className="text-slate-600 text-xs sm:text-sm font-medium">AI Safety Scanner</p>
             </div>
             <ProfileSwitcher
               profiles={allProfiles}
@@ -61,24 +65,27 @@ export default function HomePage() {
             />
           </div>
 
-          {/* Stats Grid - 3 cols mobile → 3 cols tablet → 6 cols desktop */}
-          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-            <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-4 sm:p-5 md:p-6 text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-blue-700">{myScans.length}</div>
-                <div className="text-xs sm:text-sm md:text-base text-blue-600 font-medium">Total Scans</div>
+          {/* Stats Grid - 3 horizontal cards */}
+          <div className="grid grid-cols-3 gap-3 sm:gap-4">
+            <Card className="bg-white border border-slate-200">
+              <CardContent className="p-4 text-center">
+                <ChartBarIcon className="w-5 h-5 text-slate-600 mb-2 mx-auto" />
+                <div className="text-2xl font-bold text-slate-900 mb-1">{myScans.length}</div>
+                <div className="text-xs font-medium text-slate-600">Total Scans</div>
               </CardContent>
             </Card>
-            <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-4 sm:p-5 md:p-6 text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-red-600">{unsafeCount}</div>
-                <div className="text-xs sm:text-sm md:text-base text-blue-600 font-medium">Unsafe Items</div>
+            <Card className="bg-white border border-slate-200">
+              <CardContent className="p-4 text-center">
+                <WarningIcon className="w-5 h-5 text-slate-600 mb-2 mx-auto" />
+                <div className="text-2xl font-bold text-slate-900 mb-1">{unsafeCount}</div>
+                <div className="text-xs font-medium text-slate-600">Unsafe Items</div>
               </CardContent>
             </Card>
-            <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-4 sm:p-5 md:p-6 text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-blue-700">{allProfiles.length}</div>
-                <div className="text-xs sm:text-sm md:text-base text-blue-600 font-medium">Profiles</div>
+            <Card className="bg-white border border-slate-200">
+              <CardContent className="p-4 text-center">
+                <UserGroupIcon className="w-5 h-5 text-slate-600 mb-2 mx-auto" />
+                <div className="text-2xl font-bold text-slate-900 mb-1">{allProfiles.length}</div>
+                <div className="text-xs font-medium text-slate-600">Profiles Active</div>
               </CardContent>
             </Card>
           </div>
@@ -87,89 +94,78 @@ export default function HomePage() {
 
       {/* Main Content */}
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-10 space-y-4 sm:space-y-6 md:space-y-8">
-        {/* Welcome Card */}
-        <Card className="bg-white border border-blue-200 shadow-sm">
-          <CardContent className="p-5 sm:p-6 md:p-7 lg:p-8">
-            <div className="flex items-center gap-4 md:gap-5">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                <span className="text-2xl sm:text-3xl md:text-4xl">👋</span>
-              </div>
-              <div className="flex-1">
-                <h2 className="font-semibold text-blue-900 text-lg sm:text-xl md:text-2xl">
-                  Welcome back, {currentProfile.name}!
-                </h2>
-                <p className="text-sm sm:text-base md:text-lg text-blue-600 mt-1">
-                  Tap the camera button to scan a product
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Recent Scans */}
         {recentScans.length > 0 ? (
           <div>
-            <div className="flex justify-between items-center mb-3 sm:mb-4 md:mb-5 lg:mb-6">
-              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900">Recent Scans</h2>
+            <div className="flex justify-between items-center mb-3 sm:mb-4">
+              <h2 className="text-lg sm:text-xl font-bold text-slate-900">Recent Scans</h2>
               <button
                 onClick={() => router.push("/history")}
-                className="text-primary text-xs sm:text-sm md:text-base lg:text-lg font-medium hover:underline active:opacity-70 min-h-[44px] flex items-center px-2 md:px-4"
+                className="text-slate-600 text-xs sm:text-sm font-medium hover:text-slate-900 hover:underline active:opacity-70 min-h-[44px] flex items-center px-2"
               >
                 View All →
               </button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
-              {recentScans.map((scan) => (
-                <Card
-                  key={scan.id}
-                  className="cursor-pointer hover:shadow-md transition-all active:scale-[0.97] lg:active:scale-100 overflow-hidden border border-gray-200 bg-white"
-                  onClick={() => router.push(`/results/${scan.id}`)}
-                >
-                  <div className="aspect-square relative bg-stone-50 overflow-hidden">
-                    <Image
-                      src={scan.product.imageUrl}
-                      alt={scan.product.name}
-                      fill
-                      className="object-cover transition-transform hover:scale-105"
-                    />
-                    <div className="absolute top-2 right-2 sm:top-3 sm:right-3">
-                      <div
-                        className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shadow-md ${
-                          scan.verdict.badge === "SAFE"
-                            ? "bg-slate-600"
-                            : scan.verdict.badge === "CAUTION"
-                            ? "bg-amber-500"
-                            : "bg-red-500"
-                        }`}
-                      >
-                        {scan.verdict.badge === "SAFE" ? (
-                          <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                        ) : scan.verdict.badge === "CAUTION" ? (
-                          <ExclamationTriangleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                        ) : (
-                          <XCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                        )}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+              {recentScans.map((scan) => {
+                const CategoryIcon = CATEGORY_HEROICONS[scan.product.category];
+                return (
+                  <Card
+                    key={scan.id}
+                    className="cursor-pointer hover:shadow-sm transition-shadow overflow-hidden border border-slate-200 bg-white"
+                    onClick={() => router.push(`/results/${scan.id}`)}
+                  >
+                    <div className="aspect-square relative bg-slate-50 overflow-hidden border-b border-slate-200">
+                      <Image
+                        src={scan.product.imageUrl}
+                        alt={scan.product.name}
+                        fill
+                        className="object-cover grayscale-[0.3]"
+                      />
+                      <div className="absolute top-2 left-2">
+                        <div className="w-6 h-6 bg-white/90 backdrop-blur-sm rounded border border-slate-200 flex items-center justify-center">
+                          <CategoryIcon className="w-4 h-4 text-slate-700" />
+                        </div>
+                      </div>
+                      <div className="absolute top-2 right-2">
+                        <div
+                          className={`w-7 h-7 rounded-full flex items-center justify-center border-2 border-white ${
+                            scan.verdict.badge === "SAFE"
+                              ? "bg-green-600"
+                              : scan.verdict.badge === "CAUTION"
+                              ? "bg-amber-500"
+                              : "bg-red-500"
+                          }`}
+                        >
+                          {scan.verdict.badge === "SAFE" ? (
+                            <CheckCircleIcon className="w-4 h-4 text-white" />
+                          ) : scan.verdict.badge === "CAUTION" ? (
+                            <ExclamationTriangleIcon className="w-4 h-4 text-white" />
+                          ) : (
+                            <XCircleIcon className="w-4 h-4 text-white" />
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <CardContent className="p-3 sm:p-4">
-                    <h3 className="font-semibold text-sm sm:text-base line-clamp-2 text-blue-900 mb-1">
-                      {scan.product.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-blue-600">{scan.product.brand}</p>
-                  </CardContent>
-                </Card>
-              ))}
+                    <CardContent className="p-3">
+                      <h3 className="font-semibold text-sm line-clamp-2 text-slate-900 mb-1">
+                        {scan.product.name}
+                      </h3>
+                      <p className="text-xs text-slate-600 font-medium">{scan.product.brand}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         ) : (
-          <Card>
-            <CardContent className="p-8 sm:p-12 md:p-16 lg:p-20 text-center">
-              <CameraIcon className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto text-blue-300 mb-3 sm:mb-4 md:mb-5" />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-blue-900 mb-2">
+          <Card className="border border-slate-200">
+            <CardContent className="p-8 sm:p-12 text-center">
+              <CameraIcon className="w-16 h-16 sm:w-20 sm:h-20 mx-auto text-slate-400 mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2">
                 No scans yet
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-blue-600">
+              <p className="text-sm sm:text-base text-slate-600 font-medium">
                 Start by scanning your first product
               </p>
             </CardContent>
@@ -177,7 +173,6 @@ export default function HomePage() {
         )}
       </div>
 
-      <FloatingScanButton />
       <BottomNav />
     </div>
   );
