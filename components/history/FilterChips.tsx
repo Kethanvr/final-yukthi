@@ -14,11 +14,11 @@ export function FilterChips({
   onCategoryChange,
 }: FilterChipsProps) {
   const categoryConfig = {
-    All: { icon: "📱", label: "All" },
-    Food: { icon: "🥗", label: "Food" },
-    Cosmetic: { icon: "💄", label: "Cosmetic" },
-    Medicine: { icon: "💊", label: "Medicine" },
-    Unsafe: { icon: "🔴", label: "Unsafe" },
+    All: { label: "All" },
+    Food: { label: "Food" },
+    Cosmetic: { label: "Cosmetic" },
+    Medicine: { label: "Medicine" },
+    Unsafe: { label: "Unsafe" },
   };
 
   return (
@@ -31,14 +31,13 @@ export function FilterChips({
           <button
             key={category}
             onClick={() => onCategoryChange(category)}
-            className={`flex items-center gap-2 md:gap-2.5 px-5 md:px-6 py-2.5 md:py-3 rounded-full whitespace-nowrap transition-all min-h-[44px] font-medium shadow-sm ${
+            className={`flex items-center justify-center px-5 md:px-6 py-2.5 md:py-3 rounded-full whitespace-nowrap transition-all min-h-[44px] font-medium shadow-sm ${
               isSelected
-                ? "bg-slate-600 text-white hover:bg-slate-700 shadow-md scale-105"
-                : "bg-white text-slate-700 border border-stone-300 hover:bg-stone-50 hover:border-stone-400"
+                ? "bg-blue-600 text-white hover:bg-blue-700 shadow-md scale-105"
+                : "bg-white text-blue-700 border border-blue-300 hover:bg-blue-50 hover:border-blue-400"
             }`}
           >
-            <span className="text-lg md:text-xl">{config.icon}</span>
-            <span className="text-sm md:text-base">{config.label}</span>
+            <span className="text-sm md:text-base font-medium">{config.label}</span>
           </button>
         );
       })}
