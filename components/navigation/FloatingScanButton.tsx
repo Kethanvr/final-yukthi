@@ -3,14 +3,26 @@ import { CameraIcon } from "@heroicons/react/24/outline";
 
 export function FloatingScanButton() {
   return (
-    <Link
-      href="/camera"
-      className="fixed bottom-20 right-6 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-40"
-      aria-label="Scan Product"
-      style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}
-    >
-      <CameraIcon className="w-8 h-8 text-white" />
-    </Link>
+    <>
+      {/* Mobile: Bottom right floating button */}
+      <Link
+        href="/camera"
+        className="fixed bottom-20 right-4 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-slate-600 rounded-full shadow-md flex items-center justify-center hover:bg-slate-700 active:scale-95 transition-all z-40 lg:hidden"
+        aria-label="Scan Product"
+        style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}
+      >
+        <CameraIcon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+      </Link>
+      
+      {/* Desktop: Top right button */}
+      <Link
+        href="/camera"
+        className="hidden lg:flex fixed top-20 right-6 w-14 h-14 bg-slate-600 rounded-full shadow-md items-center justify-center hover:bg-slate-700 transition-all z-40"
+        aria-label="Scan Product"
+      >
+        <CameraIcon className="w-7 h-7 text-white" />
+      </Link>
+    </>
   );
 }
 
