@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { BottomNav } from "@/components/navigation/BottomNav";
-import { FloatingScanButton } from "@/components/navigation/FloatingScanButton";
 import { ProfileCard } from "@/components/profile/ProfileCard";
 import { useApp } from "@/lib/context/AppContext";
 import { Button } from "@/components/ui/Button";
@@ -195,7 +194,6 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <FloatingScanButton />
       <BottomNav />
     </div>
   );
